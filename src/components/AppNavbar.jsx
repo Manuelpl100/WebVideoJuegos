@@ -11,7 +11,6 @@ function AppNavbar() {
     <nav className="glass-card rounded-xl mb-6 border-b border-primary-300/10">
       <div className="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
         <Link to="/" className="flex items-center space-x-3 rtl:space-x-reverse hover-glow">
-          <img src={webLogo || "/placeholder.svg"} className="h-8 animate-spin-slow" alt="Web Logo" />
           <span className="metallic-text self-center text-2xl font-bold whitespace-nowrap">Game Explorer</span>
         </Link>
         <div className="hidden w-full md:block md:w-auto">

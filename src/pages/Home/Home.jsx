@@ -11,7 +11,7 @@ function Home() {
         const loadGames = async () => {
             try {
                 const gamesData = await getGamesBy();
-                console.log("📊 Games received in Home:", gamesData);
+                console.log("Games received in Home:", gamesData);
                 
                 if (gamesData && Array.isArray(gamesData.results) && gamesData.results.length > 0) {
                     setGames(gamesData.results);
@@ -62,26 +62,24 @@ function Home() {
                 <h1 className='font-rubiksh text-3xl text-gray-200 font-bold tracking-tighter sm:text-4xl md:text-5xl lg:text-6xl'>
                     Juegos Destacados
                 </h1>
-                <div className="h-100 mb-2 mt-6 sm:h-64 xl:h-80 2xl:h-96">
-                    {isLoading ? (
-                        <p className="text-gray-400 text-center">Cargando juegos...</p>
-                    ) : games.length > 0 ? (
-                      <Carousel slideInterval={2000} className="mb-3 mt-3">
-                          {games.map((game) => (
-                              <div key={game.id} className="flex flex-col items-center justify-center h-full">
-                                  <Link to={`/gamedetails/${game.id}`} className="w-full h-full">
-                                      <img
-                                          src={game.background_image ? game.background_image : "https://via.placeholder.com/600"}
-                                          alt={game.name || "Juego sin nombre"}
-                                          className="object-cover w-full h-full rounded-lg cursor-pointer transition-transform transform hover:scale-105"
-                                      />
-                                  </Link>
-                                  <p className="text-lg font-bold text-center text-gray-200 mt-2">
-                                      {game.name}
-                                  </p>
-                              </div>
-                          ))}
-                      </Carousel>
+                <div className="h-[32rem] mb-16 mt-12 sm:h-[24rem] xl:h-[28rem] 2xl:h-[32rem]">
+                {isLoading ? (
+                  <p className="text-gray-400 text-center">Cargando juegos...</p>
+                ) : games.length > 0 ? (
+                  <Carousel slideInterval={2000} className="mb-3 mt-3 h-full">
+                    {games.map((game) => (
+                      <div key={game.id} className="flex flex-col items-center justify-center h-full px-4 pb-8">
+                        <Link to={`/gamedetails/${game.id}`} className="w-full h-4/5">
+                          <img
+                            src={game.background_image ? game.background_image : "https://via.placeholder.com/600"}
+                            alt={game.name || "Juego sin nombre"}
+                            className="object-cover w-full h-full rounded-lg cursor-pointer transition-transform transform hover:scale-105"
+                          />
+                        </Link>
+                        <p className="text-xl font-bold text-center text-gray-200 mt-2 truncate w-full">{game.name}</p>
+                      </div>
+                    ))}
+                  </Carousel>
 
                     ) : (
                         <p className="text-red-400 text-center">
