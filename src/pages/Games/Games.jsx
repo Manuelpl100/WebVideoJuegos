@@ -15,11 +15,11 @@ function Games() {
           setGames(results);
         } else {
           console.error("No se encontraron juegos de acción.");
-          setGames([]); // Evita que sea undefined
+          setGames([]); 
         }
       } catch (error) {
         console.error("Error al obtener los videojuegos:", error);
-        setGames([]); // Evita el crash si la API falla
+        setGames([]); 
       } finally {
         setIsLoading(false);
       }
@@ -33,6 +33,18 @@ function Games() {
       <h1 className='font-rubiksh text-gray-200 font-extrabold text-4xl mb-3'>
         Videojuegos Populares
       </h1>
+
+      <div class="search-box">
+        <form method="get" id="search-form">
+          <fieldset>
+              <input type="text" id="search-input" placeholder="Buscar"  />
+              <input class="search-button" type="submit" value="Buscar" />
+              <i class="search-icon"></i>
+          </fieldset>
+        </form>
+      </div>
+
+
       <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-4">
         {isLoading ? (
           <p className="text-gray-300">Cargando...</p>

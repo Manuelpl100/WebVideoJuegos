@@ -10,7 +10,7 @@ function GameDetails() {
     useEffect(() => {
         const fetchGameDetails = async () => {
             try {
-                console.log("Fetching details for game ID:", id);  // 🔍 Depuración
+                console.log("Fetching details for game ID:", id);
                 const gameData = await getGamesBy(id);
 
                 if (gameData && gameData.name) {
@@ -37,7 +37,7 @@ function GameDetails() {
         <div className="p-4 max-w-4xl mx-auto">
             <h1 className="text-3xl font-bold text-center text-gray-200">{game.name}</h1>
             <img 
-                src={game.background_image || "https://via.placeholder.com/600"} 
+                src={game.background_image} 
                 alt={game.name} 
                 className="w-full h-96 object-cover my-4 rounded-lg" 
             />
