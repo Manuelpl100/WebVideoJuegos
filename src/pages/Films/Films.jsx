@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { getMoviesBy } from "../../services/films";
-import { Link } from "react-router-dom"; // 🔗 Importamos Link
+import { Link } from "react-router-dom"; 
 import FilmPoster from "../../components/FilmPoster";
 
 function Films() {
@@ -10,11 +10,11 @@ function Films() {
   useEffect(() => {
     const fetchMovies = async () => {
       try {
-        const movies = await getMoviesBy(""); // Llamamos con un término de búsqueda (ejemplo: 'the')
+        const movies = await getMoviesBy(""); 
         console.log("🎬 Películas obtenidas:", movies);
         setFilms(movies);
       } catch (error) {
-        console.error("❌ Error al obtener datos:", error);
+        console.error("Error al obtener datos:", error);
       } finally {
         setIsLoading(false);
       }
@@ -35,7 +35,7 @@ function Films() {
       ) : films.length > 0 ? (
         <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-4">
           {films.map((film) => (
-            <Link key={film.id} to={`/films/${film.id}`}> {/* 🔗 Enlace a detalles */}
+            <Link key={film.id} to={`/films/${film.id}`}> 
               <FilmPoster
                 id={film.id}
                 title={film.name}

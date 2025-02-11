@@ -4,7 +4,7 @@ import {
   createBrowserRouter,
   RouterProvider,
   Outlet,
-} from "react-router-dom"; // Cambié `react-router` por `react-router-dom`
+} from "react-router-dom";
 import './index.css';
 import Home from './pages/Home/Home.jsx';
 import ErrorPage from './pages/ErrorPage/ErrorPage.jsx';

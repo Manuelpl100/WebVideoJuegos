@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
-import { getMoviesBy } from "../../services/films"; // Asegúrate de que esta función esté correctamente configurada
-import { useParams } from "react-router-dom"; // Para acceder a los parámetros de la URL
+import { getMoviesBy } from "../../services/films"; 
+import { useParams } from "react-router-dom"; 
 
 const FilmDetails = () => {
   const { id } = useParams();
@@ -11,10 +11,10 @@ const FilmDetails = () => {
     const fetchFilmDetails = async () => {
       try {
         const movieDetails = await getMoviesBy(id);
-        console.log("🎬 Detalles de la película:", movieDetails); // Verifica los datos
+        console.log("🎬 Detalles de la película:", movieDetails); 
         setFilm(movieDetails[0]);
       } catch (error) {
-        console.error("❌ Error al obtener detalles:", error);
+        console.error("Error al obtener detalles:", error);
       } finally {
         setIsLoading(false);
       }

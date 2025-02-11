@@ -7,11 +7,10 @@ function Home() {
   const [isLoading, setIsLoading] = useState(true);
   const [films, setFilms] = useState([]);
 
-  // Obtener los videojuegos
   useEffect(() => {
     const fetchFilms = async () => {
-      const results = await getMoviesBy("action"); // Puedes cambiar "action" por otros términos
-      setFilms(results.slice(0, 5));  // Limita a 5 resultados para el carrusel
+      const results = await getMoviesBy(""); 
+      setFilms(results.slice(0, 5)); 
       setIsLoading(false);
     };
 

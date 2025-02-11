@@ -24,7 +24,7 @@ export const getMoviesBy = async (query) => {
     
     return allMovies;
   } catch (error) {
-    console.error("❌ Error en la petición:", error);
-    return [];  // Devuelve un array vacío en caso de error
+    console.error("Error en la petición:", error);
+    return [];  
   }
 };
