@@ -5,23 +5,19 @@
 :root {
   --metallic-gradient: linear-gradient(
     145deg,
-    rgb(40, 40, 45) 0%,
-    rgb(65, 65, 75) 100%
+    #2C3E50 0%,
+    #4CA1AF 100%
   );
-
-}
-
-* {
-  color: rgb(230, 230, 235);
+  --glass-gradient: linear-gradient(
+    145deg,
+    rgba(44, 62, 80, 0.9) 0%,
+    rgba(76, 161, 175, 0.8) 100%
+  );
 }
 
 body {
-  background-color: rgb(18, 18, 20);
-  background-image: radial-gradient(
-    circle at center,
-    rgba(50, 50, 60, 0.15) 0%,
-    rgba(18, 18, 20, 0.9) 100%
-  );
+  background-color: #2C3E50;
+  color: #ECEFF1;
 }
 
 #root {
@@ -31,36 +27,64 @@ body {
   text-align: center;
   background: var(--metallic-gradient);
   border-radius: 1rem;
-  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
-  border: 1px solid rgba(255, 255, 255, 0.05);
+  box-shadow: 
+    0 8px 32px rgba(0, 0, 0, 0.2),
+    0 2px 4px rgba(0, 0, 0, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+h1, h2, h3, h4, h5, h6 {
+  color: #FFFFFF;
 }
 
 .glass-card {
-  background: var(--glass-gradient);
+  background: rgba(44, 62, 80, 0.8);
   backdrop-filter: blur(8px);
-  border: 1px solid rgba(255, 255, 255, 0.05);
-  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 
+    0 4px 16px rgba(0, 0, 0, 0.1),
+    0 1px 3px rgba(0, 0, 0, 0.05);
   transition: all 0.3s ease;
 }
 
 .glass-card:hover {
   transform: translateY(-2px);
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 
+    0 8px 24px rgba(0, 0, 0, 0.2),
+    0 2px 4px rgba(0, 0, 0, 0.15);
+  border: 1px solid rgba(255, 255, 255, 0.2);
 }
 
 .metallic-text {
-  background: linear-gradient(to right, #c0c0c0, #ffffff);
+  background: linear-gradient(to right, #4CA1AF, #ECEFF1);
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
-  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
 }
 
 .neon-glow {
-  box-shadow: 0 0 15px rgba(100, 220, 255, 0.2);
+  box-shadow: 0 0 15px rgba(76, 161, 175, 0.3);
 }
 
 .hover-glow:hover {
-  box-shadow: 0 0 20px rgba(100, 220, 255, 0.3);
+  box-shadow: 0 0 20px rgba(44, 62, 80, 0.5);
+}
+
+/* Nuevos estilos para las tarjetas */
+.card-industrial {
+  background: linear-gradient(135deg, #2C3E50 0%, #34495E 100%);
+  border: 1px solid rgba(52, 73, 94, 0.5);
+  box-shadow: 
+    0 4px 6px rgba(0, 0, 0, 0.1),
+    0 1px 3px rgba(0, 0, 0, 0.2);
+  transition: all 0.3s ease;
+}
+
+.card-industrial:hover {
+  transform: translateY(-2px);
+  box-shadow: 
+    0 8px 15px rgba(0, 0, 0, 0.2),
+    0 2px 4px rgba(0, 0, 0, 0.1);
+  border-color: rgba(44, 62, 80, 0.5);
 }
