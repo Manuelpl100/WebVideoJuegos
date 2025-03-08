@@ -101,7 +101,7 @@ function GameDetails() {
 
                 <div className="prose prose-lg">
                     <h2 className="text-2xl font-semibold text-gray-200 mb-4">Descripción</h2>
-                    <p className="text-metallic-500">{game.description_raw}</p>
+                    <p className="text-gray-300">{game.description_raw}</p>
                 </div>
             </div>
         </div>

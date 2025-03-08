@@ -96,7 +96,7 @@ function PublisherDetails() {
                                     </h2>
                                 )}
                                 {section.content.map((paragraph, pIndex) => (
-                                    <p key={pIndex} className="text-metallic-500 mb-2 leading-relaxed">
+                                    <p key={pIndex} className="text-gray-300 mb-2 leading-relaxed">
                                         {paragraph}
                                     </p>
                                 ))}
