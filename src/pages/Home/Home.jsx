@@ -1,35 +1,16 @@
-import { useEffect, useState } from "react";
-import { getGamesBy } from '../../services/games';
+import { useEffect } from "react";
+import { useDispatch, useSelector } from 'react-redux';
+import { fetchGames } from '../../store/slices/gamesSlice';
 import { Carousel } from 'flowbite-react';
 import { Link } from "react-router-dom";
 
 function Home() {
-    const [isLoading, setIsLoading] = useState(true);
-    const [games, setGames] = useState([]);
+    const dispatch = useDispatch();
+    const { games, isLoading } = useSelector(state => state.games);
 
     useEffect(() => {
-        const loadGames = async () => {
-            try {
-                const gamesData = await getGamesBy();
-                console.log("Games received in Home:", gamesData);
-                
-                if (gamesData && Array.isArray(gamesData.results) && gamesData.results.length > 0) {
-                    setGames(gamesData.results);
-                } else {
-                    console.error("⚠️ No se encontraron juegos o la API no devolvió resultados.");
-                    setGames([]);
-                }
-
-            } catch (error) {
-                console.error("Error loading games:", error);
-                setGames([]);
-            } finally {
-                setIsLoading(false);
-            }
-        };
-
-        loadGames();
-    }, []);
+        dispatch(fetchGames({}));
+    }, [dispatch]);
 
     return (
         <>
@@ -80,12 +61,11 @@ function Home() {
                       </div>
                     ))}
                   </Carousel>
-
-                    ) : (
-                        <p className="text-red-400 text-center">
-                            No se encontraron juegos. Intenta de nuevo más tarde.
-                        </p>
-                    )}
+                ) : (
+                    <p className="text-red-400 text-center">
+                        No se encontraron juegos. Intenta de nuevo más tarde.
+                    </p>
+                )}
                 </div>
             </section>
         </>

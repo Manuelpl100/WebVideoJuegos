@@ -5,8 +5,10 @@ import {
   RouterProvider,
   Outlet,
 } from "react-router-dom";  
-
 import './index.css'
+import { Provider } from 'react-redux'
+import store from './store/store'
+
 import Home from './pages/Home/Home.jsx'
 import ErrorPage from './pages/ErrorPage/ErrorPage.jsx'
 import Games from './pages/Games/Games.jsx'
@@ -17,6 +19,10 @@ import PublisherDetails from './pages/PublisherDetails/PublisherDetails.jsx';
 import TagGames from './pages/TagGames/TagGames.jsx';
 import GenreGames from './pages/GenreGames/GenreGames.jsx';
 import Publishers from './pages/Publisher/Publisher.jsx';
+import Favorites from './pages/Favorites/Favorites.jsx';
+import MyEvents from './pages/MyEvents/MyEvents.jsx';
+import Events from './pages/Events/Events.jsx';
+
 function AppLayout() {
   return <>
     <AppNavbar />
@@ -56,6 +62,18 @@ const router = createBrowserRouter([
     {
       path: "/publishers",
       element: <Publishers />
+    },
+    {
+      path: "/favorites",
+      element: <Favorites />
+    },
+    {
+      path: "/my-events",
+      element: <MyEvents />
+    },
+    {
+      path: "/events",
+      element: <Events />
     }
     ]
   }
@@ -63,6 +81,8 @@ const router = createBrowserRouter([
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
-    <RouterProvider router={router} />
+    <Provider store={store}>
+      <RouterProvider router={router} />
+    </Provider>
   </React.StrictMode>,
 )
